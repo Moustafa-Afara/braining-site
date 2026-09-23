@@ -1,0 +1,200 @@
+/*
+ * Braining — the site's whole stylesheet. L6.
+ *
+ * The palette is the app's `BrandPalette`, copied by value: Ink for dark, Paper for light. The
+ * site follows the visitor's own system preference and offers a toggle, exactly as the app does.
+ *
+ * "Calm interactivity" is the owner's brief, and it is enforced here rather than argued: one
+ * scroll-reveal, one typed demo, no parallax, no autoplaying media, no cookie banner — there is
+ * nothing to consent to, because the site collects nothing.
+ */
+
+:root {
+  --ground: #F6F5FA;
+  --surface: #FFFFFF;
+  --raised: #EFEEF6;
+  --line: #E0DEEC;
+  --text: #1A1826;
+  --muted: #6A667C;
+  --accent: #5B51D8;
+  --on-accent: #FFFFFF;
+  --accent-soft: #E8E6FB;
+  --amber: #B26B00;
+  --radius: 14px;
+  --maxw: 940px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0E0D14;
+    --surface: #17161F;
+    --raised: #201E2B;
+    --line: #2C2937;
+    --text: #E8E6F0;
+    --muted: #9B97AC;
+    --accent: #8B84F7;
+    --on-accent: #0B0A11;
+    --accent-soft: #241F45;
+    --amber: #F0A500;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #0E0D14;
+  --surface: #17161F;
+  --raised: #201E2B;
+  --line: #2C2937;
+  --text: #E8E6F0;
+  --muted: #9B97AC;
+  --accent: #8B84F7;
+  --on-accent: #0B0A11;
+  --accent-soft: #241F45;
+  --amber: #F0A500;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* RTL is the default direction; the toggle swaps `dir` on <html>, not only the strings. */
+[dir="ltr"] body { line-height: 1.7; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ── header ──────────────────────────────────────────────────────────────────── */
+header {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+header .wrap { display: flex; align-items: center; gap: 14px; height: 62px; }
+.brand { font-weight: 700; font-size: 19px; letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+header nav { margin-inline-start: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+header nav a, .chip {
+  color: var(--muted); text-decoration: none; font-size: 14px;
+  padding: 6px 11px; border-radius: 999px; border: 1px solid transparent;
+  background: none; cursor: pointer; font-family: inherit;
+}
+header nav a:hover, .chip:hover { color: var(--text); background: var(--raised); }
+
+/* ── hero ────────────────────────────────────────────────────────────────────── */
+.hero { padding: 74px 0 56px; }
+.hero h1 {
+  font-size: clamp(34px, 6vw, 56px); line-height: 1.2; margin: 0 0 18px;
+  letter-spacing: -0.02em; font-weight: 800;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lede { font-size: clamp(18px, 2.4vw, 22px); color: var(--muted); margin: 0 0 30px; max-width: 640px; }
+
+.cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-block; padding: 13px 24px; border-radius: var(--radius);
+  background: var(--accent); color: var(--on-accent); text-decoration: none;
+  font-weight: 650; border: 1px solid var(--accent); transition: transform .16s ease, filter .16s ease;
+}
+.btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--line); }
+.btn.ghost:hover { background: var(--raised); filter: none; }
+.note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+
+/* ── the demo ────────────────────────────────────────────────────────────────── */
+.demo {
+  margin-top: 44px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; overflow: hidden; box-shadow: 0 18px 50px -30px rgba(0,0,0,.5);
+}
+.demo-bar {
+  display: flex; align-items: center; gap: 8px; padding: 11px 16px;
+  border-bottom: 1px solid var(--line); background: var(--raised);
+  font-size: 13px; color: var(--muted);
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.demo-body { padding: 20px 18px 24px; min-height: 210px; }
+.bubble {
+  max-width: 84%; padding: 11px 15px; border-radius: 15px; margin-bottom: 12px;
+  font-size: 16px; white-space: pre-wrap; word-break: break-word;
+}
+.bubble.me { background: var(--accent-soft); margin-inline-start: auto; border-end-end-radius: 5px; }
+.bubble.ai { background: var(--raised); border-end-start-radius: 5px; }
+.caret { display: inline-block; width: 2px; height: 1.05em; background: var(--accent);
+         vertical-align: -0.16em; animation: blink 1.05s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+/* ── sections ────────────────────────────────────────────────────────────────── */
+section { padding: 62px 0; border-top: 1px solid var(--line); }
+section h2 { font-size: clamp(25px, 3.4vw, 33px); margin: 0 0 8px; letter-spacing: -0.015em; }
+section .sub { color: var(--muted); margin: 0 0 30px; max-width: 620px; }
+
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; transition: border-color .18s ease, transform .18s ease;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.card .k { font-size: 13px; color: var(--accent); font-weight: 650; letter-spacing: .03em; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 9px; }
+.pill {
+  padding: 8px 15px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); font-size: 14.5px; color: var(--muted);
+}
+
+.promise { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px; }
+.promise ul { margin: 0; padding-inline-start: 22px; }
+.promise li { margin-bottom: 9px; }
+.promise li strong { color: var(--text); }
+
+.guard { border-inline-start: 3px solid var(--amber); padding-inline-start: 16px; margin: 18px 0; }
+.guard h4 { margin: 0 0 4px; font-size: 16px; }
+.guard p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* ── prose pages (privacy, terms) ─────────────────────────────────────────────── */
+.prose { padding: 46px 0 70px; }
+.prose h1 { font-size: clamp(28px, 4.4vw, 38px); margin: 0 0 6px; }
+.prose h2 { font-size: 22px; margin: 36px 0 10px; }
+.prose h3 { font-size: 18px; margin: 26px 0 8px; }
+.prose table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 9px 12px; text-align: start; }
+.prose th { background: var(--raised); }
+.prose code { background: var(--raised); padding: 2px 6px; border-radius: 5px; font-size: 14px; }
+.prose .updated { color: var(--muted); font-size: 15px; margin: 0 0 26px; }
+.prose hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+
+/* ── footer ──────────────────────────────────────────────────────────────────── */
+footer { border-top: 1px solid var(--line); padding: 36px 0 54px; color: var(--muted); font-size: 15px; }
+footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+footer a:hover { color: var(--accent); border-color: var(--accent); }
+.foot-links { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 14px; }
+
+/* ── the one motion effect ───────────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Honoured, not negotiated: someone who asks for less motion gets none. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .caret { animation: none; }
+  .btn:hover, .card:hover { transform: none; }
+}
+
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  header .wrap { height: auto; padding-block: 10px; flex-wrap: wrap; }
+  header nav { margin-inline-start: 0; width: 100%; }
+  .hero { padding: 46px 0 38px; }
+  .bubble { max-width: 94%; }
+}

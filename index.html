@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Braining «فهم» — مساعد عربيّ بالصوت، بمفاتيحك أنت</title>
+<meta name="description" content="مساعد أندرويد عربيّ أولاً يعمل بالصوت. مفاتيحك أنت، بلا خادم وبلا حساب، ولا يغادر هاتفك شيء إلا إلى المزوّد الذي اخترته.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Braining «فهم»">
+<meta property="og:description" content="مساعد أندرويد عربيّ أولاً يعمل بالصوت. مفاتيحك أنت، بلا خادم وبلا حساب.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Braining <span>«فهم»</span></div>
+    <nav>
+      <a href="#what" data-ar="ما هو" data-en="What it is">ما هو</a>
+      <a href="#brains" data-ar="الأدمغة" data-en="Brains">الأدمغة</a>
+      <a href="#clarify" data-ar="الاستجواب" data-en="Clarify">الاستجواب</a>
+      <a href="#pc" data-ar="حاسبك" data-en="Your PC">حاسبك</a>
+      <a href="#privacy" data-ar="الخصوصية" data-en="Privacy">الخصوصية</a>
+      <a href="#get" data-ar="التحميل" data-en="Download">التحميل</a>
+      <button class="chip" id="lang" type="button">English</button>
+      <button class="chip" id="theme" type="button" aria-label="بدّل الوضع">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ── hero ─────────────────────────────────────────────────────────────────── -->
+<div class="wrap hero">
+  <h1 data-ar="اطلب من هاتفك بالعربية.<br>وادفع <em>لمن تختار أنت</em>." data-en="Ask your phone in Arabic.<br>And pay <em>whoever you choose</em>.">
+    اطلب من هاتفك بالعربية.<br>وادفع <em>لمن تختار أنت</em>.
+  </h1>
+  <p class="lede" data-ar="مساعد أندرويد عربيّ أولاً، يعمل بالصوت، ويتكلّم مع ستّة نماذج ذكاء اصطناعي بمفتاحك أنت. لا خادم، ولا حساب، ولا شركة في المنتصف." data-en="An Arabic-first Android assistant, driven by voice, talking to six AI models with your own key. No server, no account, no company in the middle.">
+    مساعد أندرويد عربيّ أولاً، يعمل بالصوت، ويتكلّم مع ستّة نماذج ذكاء اصطناعي بمفتاحك أنت.
+    لا خادم، ولا حساب، ولا شركة في المنتصف.
+  </p>
+
+  <div class="cta">
+    <a class="btn" href="https://github.com/Moustafa-Afara/Braining/releases/latest" data-ar="حمّل التطبيق" data-en="Download">حمّل التطبيق</a>
+    <a class="btn ghost" href="https://t.me/Braining_AI" data-ar="القناة الرسمية" data-en="Official channel">القناة الرسمية</a>
+  </div>
+  <p class="note" data-ar="أندرويد ٨ فما فوق · مجّاني · على Google Play قريباً" data-en="Android 8+ · free · on Google Play soon">
+    أندرويد ٨ فما فوق · مجّاني · على Google Play قريباً
+  </p>
+
+  <!-- The one piece of motion on the page: a typed exchange, in CSS/JS, no video. -->
+  <div class="demo" aria-hidden="true">
+    <div class="demo-bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span style="margin-inline-start:8px" id="demo-provider">Claude · claude-opus-5</span>
+    </div>
+    <div class="demo-body" id="demo"></div>
+  </div>
+</div>
+
+<!-- ── what it is ───────────────────────────────────────────────────────────── -->
+<section id="what">
+  <div class="wrap">
+    <h2 class="reveal" data-ar="ثلاث جمل، ثم القرار لك" data-en="Three sentences, then it is your call">ثلاث جمل، ثم القرار لك</h2>
+    <p class="sub reveal" data-ar="ثلاثة أذونات فقط، ولا حزمة تحليلات، وكل ما يخرج من هاتفك مكتوب في سياسة الخصوصية." data-en="Three permissions, no analytics SDK, and everything that leaves your phone is written in the privacy policy.">ثلاثة أذونات فقط، ولا حزمة تحليلات، وكل ما يخرج من هاتفك مكتوب في سياسة الخصوصية.</p>
+
+    <div class="grid">
+      <div class="card reveal">
+        <div class="k">١</div>
+        <h3 data-ar="عربيّ من الأساس" data-en="Arabic from the ground up">عربيّ من الأساس</h3>
+        <p data-ar="ليس ترجمةً لتطبيق إنجليزي. الواجهة عربية، والإملاء الصوتي عربي، والقراءة بصوت شامي، والنصّ يُهيَّأ قبل النطق فتُقرأ «مثلاً» صحيحةً لا «مثلنن»." data-en="Not a translated English app. Arabic interface, Arabic dictation, a Levantine reading voice, and text prepared before it is spoken.">
+          ليس ترجمةً لتطبيق إنجليزي. الواجهة عربية، والإملاء الصوتي عربي، والقراءة بصوت شامي،
+          والنصّ يُهيَّأ قبل النطق فتُقرأ «مثلاً» صحيحةً لا «مثلنن».
+        </p>
+      </div>
+      <div class="card reveal">
+        <div class="k">٢</div>
+        <h3 data-ar="مفتاحك، وتكلفتك، وخصوصيتك" data-en="Your key, your cost, your privacy">مفتاحك، وتكلفتك، وخصوصيتك</h3>
+        <p data-ar="تُنشئ المفتاح عند المزوّد وتُدخله في هاتفك، فيُحفظ مشفَّراً في شريحة الأمان. لا نراه، ولا يمرّ بنا شيء — لأنه لا يوجد «نحن» في المسار أصلاً." data-en="You create the key with the provider and enter it on your phone, where it is encrypted in secure hardware. We never see it, because there is no 'we' on the path.">
+          تُنشئ المفتاح عند المزوّد وتُدخله في هاتفك، فيُحفظ مشفَّراً في شريحة الأمان.
+          لا نراه، ولا يمرّ بنا شيء — لأنه لا يوجد «نحن» في المسار أصلاً.
+        </p>
+      </div>
+      <div class="card reveal">
+        <div class="k">٣</div>
+        <h3 data-ar="ستّة أدمغة، تطبيق واحد" data-en="Six brains, one app">ستّة أدمغة، تطبيق واحد</h3>
+        <p data-ar="بدّل المزوّد في منتصف المحادثة. وإن سقط واحد، يعرض عليك التطبيق البدائل التي أعددتَها بدل أن يقف." data-en="Switch provider mid-conversation. If one fails, the app offers the alternatives you configured instead of stopping.">
+          بدّل المزوّد في منتصف المحادثة. وإن سقط واحد، يعرض عليك التطبيق البدائل التي
+          أعددتَها بدل أن يقف.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── providers ────────────────────────────────────────────────────────────── -->
+<section id="brains">
+  <div class="wrap">
+    <h2 class="reveal" data-ar="الأدمغة التي تصلها" data-en="The brains it reaches">الأدمغة التي تصلها</h2>
+    <p class="sub reveal" data-ar="بمفتاحك عند كلٍّ منها. والدليل داخل التطبيق يشرح من أين تحصل على كل مفتاح، خطوةً خطوة." data-en="With your own key at each. The in-app guide shows where every key comes from, step by step.">
+      بمفتاحك عند كلٍّ منها. والدليل داخل التطبيق يشرح من أين تحصل على كل مفتاح، خطوةً خطوة.
+    </p>
+    <div class="pills reveal">
+      <span class="pill">Anthropic — Claude</span>
+      <span class="pill">OpenAI</span>
+      <span class="pill">Google — Gemini</span>
+      <span class="pill">DeepSeek</span>
+      <span class="pill">OpenRouter</span>
+      <span class="pill" data-ar="Ollama — على حاسبك أنت" data-en="Ollama — on your own PC">Ollama — على حاسبك أنت</span>
+    </div>
+    <p class="note reveal" data-ar="وللنسخ الصوتي: محرّك هاتفك مجّاناً، أو Deepgram بمفتاحك. وللقراءة بصوت شامي: Azure بمفتاحك." data-en="For transcription: your phone's engine free, or Deepgram with your key. For the Levantine reading voice: Azure with your key.">
+      وللنسخ الصوتي: محرّك هاتفك مجّاناً، أو Deepgram بمفتاحك. وللقراءة بصوت شامي: Azure بمفتاحك.
+    </p>
+  </div>
+</section>
+
+<!-- ── clarify ──────────────────────────────────────────────────────────────── -->
+<section id="clarify">
+  <div class="wrap">
+    <h2 class="reveal" data-ar="التطبيق الذي يسألك أنت أوّلاً" data-en="The app that questions you first">التطبيق الذي يسألك أنت أوّلاً</h2>
+    <p class="sub reveal" data-ar="أكثر جواب رديء سببه سؤال ناقص. «الاستجواب» يقلب الترتيب: قبل أن يذهب طلبك إلى النموذج، يسألك التطبيق اثني عشر سؤالاً عن فكرتك، ثم يصوغ منها طلباً محكماً." data-en="Most bad answers come from an incomplete question. Clarify inverts the order: before your request reaches the model, the app asks you twelve questions and forges a precise brief from your answers.">
+      أكثر جواب رديء سببه سؤال ناقص. «الاستجواب» يقلب الترتيب: قبل أن يذهب طلبك إلى النموذج،
+      يسألك التطبيق اثني عشر سؤالاً عن فكرتك، ثم يصوغ منها طلباً محكماً.
+    </p>
+    <div class="grid">
+      <div class="card reveal"><h3 data-ar="اثنا عشر سؤالاً" data-en="Twelve questions">اثنا عشر سؤالاً</h3><p data-ar="سؤال واحد في كل شاشة، ويمكنك الرجوع دون أن تفقد جواباً." data-en="One question per screen, and you can go back without losing an answer.">سؤال واحد في كل شاشة، ويمكنك الرجوع دون أن تفقد جواباً.</p></div>
+      <div class="card reveal"><h3 data-ar="مهارات" data-en="Skills">مهارات</h3><p data-ar="نصوص تشرح للنموذج كيف يُنجَز نوعٌ من العمل جيّداً — تخطيط، شرح، كتابة، تحليل. يختار التطبيق ما يناسب فكرتك تلقائياً." data-en="Texts telling the model how a kind of work is done well. The app picks what fits your idea.">نصوص تشرح للنموذج كيف يُنجَز نوعٌ من العمل جيّداً — تخطيط، شرح، كتابة، تحليل. يختار التطبيق ما يناسب فكرتك تلقائياً.</p></div>
+      <div class="card reveal"><h3 data-ar="يُحفَظ ويُعاد" data-en="Saved and re-run">يُحفَظ ويُعاد</h3><p data-ar="كل جلسة تبقى في السجلّ باسم يكتبه النموذج، وتستطيع إعادة تنفيذها بمزوّد آخر." data-en="Every session stays in History under a model-written name, and can be re-run on another provider.">كل جلسة تبقى في السجلّ باسم يكتبه النموذج، وتستطيع إعادة تنفيذها بمزوّد آخر.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── the PC ───────────────────────────────────────────────────────────────── -->
+<section id="pc">
+  <div class="wrap">
+    <h2 class="reveal" data-ar="حاسبك، وأنت بعيد عنه" data-en="Your PC, from anywhere">حاسبك، وأنت بعيد عنه</h2>
+    <p class="sub reveal" data-ar="شغّل الجسر على حاسبك أنت، فتستطيع أن تطلب منه مهامّ من هاتفك: يقرأ ملفّاتك، يكتب، ينفّذ — ثم يخبرك بما تغيّر بالضبط. الثقة هي كل الموضوع، فلنقل بوضوح ما لا يفعله." data-en="Run the bridge on your own PC and hand it tasks from your phone: it reads your files, writes, executes — then tells you exactly what changed. Trust is the whole point, so here is what it does not do.">
+      شغّل الجسر على حاسبك أنت، فتستطيع أن تطلب منه مهامّ من هاتفك: يقرأ ملفّاتك، يكتب، ينفّذ —
+      ثم يخبرك بما تغيّر بالضبط. الثقة هي كل الموضوع، فلنقل بوضوح ما لا يفعله.
+    </p>
+
+    <div class="guard reveal">
+      <h4 data-ar="لا يصل أحد إلى حاسبك غيرك" data-en="Nobody but you reaches your PC">لا يصل أحد إلى حاسبك غيرك</h4>
+      <p data-ar="الجسر يعمل على جهازك وحده، برمزٍ تولّده أنت، ولا يستمع إلا على عنوان Tailscale الخاص بك. لا يوجد باب خلفي، ولا وصول عن بُعد لأجهزة المستخدمين — وقد رُفض بناء ذلك صراحةً." data-en="The bridge runs on your machine alone, with a token you generate, listening only on your Tailscale address. There is no backdoor and no remote access to users' devices; building one was explicitly refused.">
+        الجسر يعمل على جهازك وحده، برمزٍ تولّده أنت، ولا يستمع إلا على عنوان Tailscale الخاص بك.
+        لا يوجد باب خلفي، ولا وصول عن بُعد لأجهزة المستخدمين — وقد رُفض بناء ذلك صراحةً.
+      </p>
+    </div>
+    <div class="guard reveal">
+      <h4 data-ar="يستأذنك قبل ما يؤذي" data-en="It asks before anything destructive">يستأذنك قبل ما يؤذي</h4>
+      <p data-ar="الجسر — لا النموذج — هو من يقرّر ما يحتاج إذناً. فلا يستطيع جوابُ نموذجٍ أن يوسّع صلاحيات نفسه بالإقناع." data-en="The bridge — not the model — decides what needs approval. So a model's output cannot argue its way into more access.">
+        الجسر — لا النموذج — هو من يقرّر ما يحتاج إذناً. فلا يستطيع جوابُ نموذجٍ أن يوسّع صلاحيات
+        نفسه بالإقناع.
+      </p>
+    </div>
+    <div class="guard reveal">
+      <h4 data-ar="ملفّات لا تُقرأ أبداً" data-en="Files it will never read">ملفّات لا تُقرأ أبداً</h4>
+      <p data-ar="مفاتيح التوقيع، وملفّات الاعتماد، و‎.ssh و‎.gnupg و‎.aws — مرفوضة قراءةً وكتابةً مهما طُلِب. وكل ما يجري يُسجَّل في سجلّ على حاسبك لا يستطيع التطبيق تعديله." data-en="Signing keys, credential files, .ssh, .gnupg and .aws are refused for both reading and writing, whatever is asked. Everything is written to a log on your PC that the app cannot edit.">
+        مفاتيح التوقيع، وملفّات الاعتماد، و‎.ssh و‎.gnupg و‎.aws — مرفوضة قراءةً وكتابةً مهما طُلِب.
+        وكل ما يجري يُسجَّل في سجلّ على حاسبك لا يستطيع التطبيق تعديله.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── privacy ──────────────────────────────────────────────────────────────── -->
+<section id="privacy">
+  <div class="wrap">
+    <h2 class="reveal" data-ar="الخصوصية، في شاشة واحدة" data-en="Privacy, in one screen">الخصوصية، في شاشة واحدة</h2>
+    <p class="sub reveal" data-ar="ليست وعداً، بل نتيجةٌ لبنية التطبيق: لا يوجد خادم يمكن أن يُخترق، لأنه لم يُبنَ." data-en="Not a promise but a consequence of the architecture: there is no server to breach, because none was built.">
+      ليست وعداً، بل نتيجةٌ لبنية التطبيق: لا يوجد خادم يمكن أن يُخترق، لأنه لم يُبنَ.
+    </p>
+    <div class="promise reveal">
+      <ul>
+        <li data-ar="<strong>لا نجمع شيئاً.</strong> لا حساب، ولا تحليلات، ولا مُعرّف إعلاني، ولا موقع جغرافي — التطبيق لا يطلب إذن الموقع إطلاقاً."
+            data-en="<strong>We collect nothing.</strong> No account, no analytics, no advertising id, no location — the app never requests the location permission."><strong>لا نجمع شيئاً.</strong> لا حساب، ولا تحليلات، ولا مُعرّف إعلاني، ولا موقع جغرافي — التطبيق لا يطلب إذن الموقع إطلاقاً.</li>
+        <li data-ar="<strong>مفاتيحك</strong> في شريحة الأمان في هاتفك، ولا تُنسَخ إلى حساب Google الخاص بك."
+            data-en="<strong>Your keys</strong> live in your phone's secure hardware and are never copied to your Google account."><strong>مفاتيحك</strong> في شريحة الأمان في هاتفك، ولا تُنسَخ إلى حساب Google الخاص بك.</li>
+        <li data-ar="<strong>الصوت الخام لا يُحفَظ أبداً</strong> — يُحوَّل إلى نصّ ويُتلَف فوراً."
+            data-en="<strong>Raw audio is never stored</strong> — it becomes text and is discarded."><strong>الصوت الخام لا يُحفَظ أبداً</strong> — يُحوَّل إلى نصّ ويُتلَف فوراً.</li>
+        <li data-ar="<strong>محادثاتك وسجلّك</strong> على جهازك حتى تحذفها أنت."
+            data-en="<strong>Your conversations and history</strong> stay on your device until you delete them."><strong>محادثاتك وسجلّك</strong> على جهازك حتى تحذفها أنت.</li>
+        <li data-ar="<strong>لا يخرج تقرير عطل</strong> إلا بضغطك أنت، وتراه قبل إرساله، ولا يحتوي مفتاحاً ولا موقعاً ولا اسماً."
+            data-en="<strong>No diagnostic report leaves</strong> without your tap; you see it first, and it carries no key, no location and no name."><strong>لا يخرج تقرير عطل</strong> إلا بضغطك أنت، وتراه قبل إرساله، ولا يحتوي مفتاحاً ولا موقعاً ولا اسماً.</li>
+      </ul>
+    </div>
+    <p class="note reveal">
+      <a href="privacy.html" data-ar="سياسة الخصوصية كاملة" data-en="The full privacy policy">سياسة الخصوصية كاملة</a> ·
+      <a href="terms.html" data-ar="شروط الاستخدام" data-en="Terms of use">شروط الاستخدام</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── download ─────────────────────────────────────────────────────────────── -->
+<section id="get">
+  <div class="wrap">
+    <h2 class="reveal" data-ar="ابدأ" data-en="Get started">ابدأ</h2>
+    <p class="sub reveal" data-ar="حمّل الملفّ، ثبّته، وافتحه. إن لم يكن لديك مفتاح بعد، جرّب التطبيق بعدد محدود من الطلبات قبل أن تقرّر." data-en="Download it, install it, open it. With no key yet, try it on a limited number of requests before deciding.">
+      حمّل الملفّ، ثبّته، وافتحه. إن لم يكن لديك مفتاح بعد، جرّب التطبيق بعدد محدود من الطلبات
+      قبل أن تقرّر.
+    </p>
+    <div class="cta reveal">
+      <a class="btn" href="https://github.com/Moustafa-Afara/Braining/releases/latest" data-ar="آخر إصدار" data-en="Latest release">آخر إصدار</a>
+      <a class="btn ghost" href="https://t.me/Braining_AI" data-ar="أخبار التطبيق" data-en="App news">أخبار التطبيق</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="privacy.html" data-ar="الخصوصية" data-en="Privacy">الخصوصية</a>
+      <a href="terms.html" data-ar="الشروط" data-en="Terms">الشروط</a>
+      <a href="https://t.me/Braining_AI">@Braining_AI</a>
+    </div>
+    <div>© 2026 <a href="https://t.me/Mustafa_Afara">Moustafa Afara</a><span data-ar=" — جميع الحقوق محفوظة." data-en=" — all rights reserved."> — جميع الحقوق محفوظة.</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
