@@ -1,165 +1,210 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Braining «فهم» — مساعد عربيّ بالصوت، بمفاتيحك أنت</title>
-<meta name="description" content="مساعد أندرويد عربيّ أولاً يعمل بالصوت. مفاتيحك أنت، بلا خادم وبلا حساب، ولا يغادر هاتفك شيء إلا إلى المزوّد الذي اخترته.">
+<title>Braining «فهم» — every AI model, your keys, your computer</title>
+<meta name="description" content="An Android assistant you talk to in English or Arabic. It reaches the AI models you choose with your own keys, uses your own computer for free pictures, voice and tasks, and keeps no server in the middle.">
 <meta name="color-scheme" content="light dark">
 <meta property="og:title" content="Braining «فهم»">
-<meta property="og:description" content="مساعد أندرويد عربيّ أولاً يعمل بالصوت. مفاتيحك أنت، بلا خادم وبلا حساب.">
+<meta property="og:description" content="Every AI model. Your keys. Your computer. An Android assistant with no server in the middle.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
+<a class="skip" href="#main" data-en="Skip to content" data-ar="انتقل إلى المحتوى">Skip to content</a>
 
 <header>
   <div class="wrap">
-    <div class="brand">Braining <span>«فهم»</span></div>
-    <nav>
-      <a href="#what" data-ar="ما هو" data-en="What it is">ما هو</a>
-      <a href="#brains" data-ar="الأدمغة" data-en="Brains">الأدمغة</a>
-      <a href="#clarify" data-ar="الاستجواب" data-en="Clarify">الاستجواب</a>
-      <a href="#pc" data-ar="حاسبك" data-en="Your PC">حاسبك</a>
-      <a href="#privacy" data-ar="الخصوصية" data-en="Privacy">الخصوصية</a>
-      <a href="#get" data-ar="التحميل" data-en="Download">التحميل</a>
-      <button class="chip" id="lang" type="button">English</button>
-      <button class="chip" id="theme" type="button" aria-label="بدّل الوضع">◐</button>
+    <div class="brand"><a href="#top"><span class="logo" aria-hidden="true">ف</span>Braining <span>«فهم»</span></a></div>
+    <nav aria-label="Main">
+      <div class="links">
+        <a href="#why" data-en="Why" data-ar="لماذا">Why</a>
+        <a href="#connect" data-en="How it connects" data-ar="كيف يتّصل">How it connects</a>
+        <a href="#models" data-en="Models" data-ar="النماذج">Models</a>
+        <a href="#guide" data-en="Guide" data-ar="الدليل">Guide</a>
+        <a href="#privacy" data-en="Privacy" data-ar="الخصوصية">Privacy</a>
+        <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+      </div>
+      <button class="chip" id="lang" type="button" data-en="العربية" data-ar="English">العربية</button>
+      <button class="chip" id="theme" type="button" aria-label="Light or dark">◐</button>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <!-- ── hero ─────────────────────────────────────────────────────────────────── -->
-<div class="wrap hero">
-  <h1 data-ar="اطلب من هاتفك بالعربية.<br>وادفع <em>لمن تختار أنت</em>." data-en="Ask your phone in Arabic.<br>And pay <em>whoever you choose</em>.">
-    اطلب من هاتفك بالعربية.<br>وادفع <em>لمن تختار أنت</em>.
-  </h1>
-  <p class="lede" data-ar="مساعد أندرويد عربيّ أولاً، يعمل بالصوت، ويتكلّم مع ستّة نماذج ذكاء اصطناعي بمفتاحك أنت. لا خادم، ولا حساب، ولا شركة في المنتصف." data-en="An Arabic-first Android assistant, driven by voice, talking to six AI models with your own key. No server, no account, no company in the middle.">
-    مساعد أندرويد عربيّ أولاً، يعمل بالصوت، ويتكلّم مع ستّة نماذج ذكاء اصطناعي بمفتاحك أنت.
-    لا خادم، ولا حساب، ولا شركة في المنتصف.
-  </p>
-
-  <div class="cta">
-    <a class="btn" href="https://github.com/Moustafa-Afara/Braining/releases/latest" data-ar="حمّل التطبيق" data-en="Download">حمّل التطبيق</a>
-    <a class="btn ghost" href="https://t.me/Braining_AI" data-ar="القناة الرسمية" data-en="Official channel">القناة الرسمية</a>
-  </div>
-  <p class="note" data-ar="أندرويد ٨ فما فوق · مجّاني · على Google Play قريباً" data-en="Android 8+ · free · on Google Play soon">
-    أندرويد ٨ فما فوق · مجّاني · على Google Play قريباً
-  </p>
-
-  <!-- The one piece of motion on the page: a typed exchange, in CSS/JS, no video. -->
-  <div class="demo" aria-hidden="true">
-    <div class="demo-bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span style="margin-inline-start:8px" id="demo-provider">Claude · claude-opus-5</span>
+<div class="wrap hero" id="top">
+  <div>
+    <span class="eyebrow" data-en="Android · English and Arabic · bring your own keys" data-ar="أندرويد · العربية والإنجليزية · بمفاتيحك أنت">Android · English and Arabic · bring your own keys</span>
+    <h1 data-en="Every AI model.<br>Your keys. <em>Your computer.</em>" data-ar="كلّ نماذج الذكاء الاصطناعي.<br>بمفاتيحك. <em>وعلى حاسوبك.</em>">Every AI model.<br>Your keys. <em>Your computer.</em></h1>
+    <p class="lede" data-en="Braining is an assistant you talk to. It reaches the models you choose with your own keys, uses your own computer for free pictures, voice and tasks, and asks the right questions before it answers. There is no server in the middle — and no account to make."
+       data-ar="«فهم» مساعد تتكلّم معه. يصل إلى النماذج التي تختارها بمفاتيحك أنت، ويستعمل حاسوبك لتوليد الصور والصوت وتنفيذ المهامّ مجاناً، ويسألك الأسئلة الصحيحة قبل أن يجيب. لا خادم في المنتصف، ولا حساب تنشئه.">Braining is an assistant you talk to. It reaches the models you choose with your own keys, uses your own computer for free pictures, voice and tasks, and asks the right questions before it answers. There is no server in the middle — and no account to make.</p>
+    <div class="cta">
+      <a class="btn" href="#get" data-en="Get the app" data-ar="احصل على التطبيق">Get the app</a>
+      <a class="btn ghost" href="#guide" data-en="Read the guide" data-ar="اقرأ الدليل">Read the guide</a>
     </div>
-    <div class="demo-body" id="demo"></div>
+    <p class="note" data-en="Free app · Android 8 or newer · the models cost what their providers charge you, or nothing when they run on your computer."
+       data-ar="تطبيق مجاني · أندرويد ٨ فما فوق · النماذج تكلّف ما يأخذه مزوّدها منك، أو لا شيء حين تعمل على حاسوبك.">Free app · Android 8 or newer · the models cost what their providers charge you, or nothing when they run on your computer.</p>
+  </div>
+
+  <div>
+    <div class="phone" aria-label="A short demonstration of the app" role="img">
+      <div class="screen">
+        <div class="screen-top"><b id="scene-model">Claude · claude-opus</b><span id="scene-route" data-en="home network" data-ar="شبكة البيت">home network</span></div>
+        <div class="thread" id="thread" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="scenes" role="group" aria-label="Scenes">
+      <button type="button" data-scene="chat" aria-pressed="true" data-en="Ask" data-ar="اسأل">Ask</button>
+      <button type="button" data-scene="voice" aria-pressed="false" data-en="Speak" data-ar="تكلّم">Speak</button>
+      <button type="button" data-scene="picture" aria-pressed="false" data-en="Picture" data-ar="صورة">Picture</button>
+      <button type="button" data-scene="pc" aria-pressed="false" data-en="Your PC" data-ar="حاسوبك">Your PC</button>
+      <button type="button" data-scene="clarify" aria-pressed="false" data-en="Braining mode" data-ar="نمط الفهم">Braining mode</button>
+    </div>
   </div>
 </div>
 
-<!-- ── what it is ───────────────────────────────────────────────────────────── -->
-<section id="what">
+<!-- ── why ──────────────────────────────────────────────────────────────────── -->
+<section id="why">
   <div class="wrap">
-    <h2 class="reveal" data-ar="ثلاث جمل، ثم القرار لك" data-en="Three sentences, then it is your call">ثلاث جمل، ثم القرار لك</h2>
-    <p class="sub reveal" data-ar="ثلاثة أذونات فقط، ولا حزمة تحليلات، وكل ما يخرج من هاتفك مكتوب في سياسة الخصوصية." data-en="Three permissions, no analytics SDK, and everything that leaves your phone is written in the privacy policy.">ثلاثة أذونات فقط، ولا حزمة تحليلات، وكل ما يخرج من هاتفك مكتوب في سياسة الخصوصية.</p>
-
+    <h2 class="reveal" data-en="An assistant that works for you, not for a platform" data-ar="مساعد يعمل لك، لا لمنصّة">An assistant that works for you, not for a platform</h2>
+    <p class="sub reveal" data-en="Most assistants lock you to one company's model and one company's server. Braining turns that around: you pick the brain, you hold the keys, and the heavy work can happen on a computer you already own."
+       data-ar="معظم المساعدات تربطك بنموذج شركة واحدة وخادمها. «فهم» يقلب ذلك: أنت تختار العقل، والمفاتيح معك، والعمل الثقيل يمكن أن يجري على حاسوب تملكه أصلاً.">Most assistants lock you to one company's model and one company's server. Braining turns that around: you pick the brain, you hold the keys, and the heavy work can happen on a computer you already own.</p>
     <div class="grid">
-      <div class="card reveal">
-        <div class="k">١</div>
-        <h3 data-ar="عربيّ من الأساس" data-en="Arabic from the ground up">عربيّ من الأساس</h3>
-        <p data-ar="ليس ترجمةً لتطبيق إنجليزي. الواجهة عربية، والإملاء الصوتي عربي، والقراءة بصوت شامي، والنصّ يُهيَّأ قبل النطق فتُقرأ «مثلاً» صحيحةً لا «مثلنن»." data-en="Not a translated English app. Arabic interface, Arabic dictation, a Levantine reading voice, and text prepared before it is spoken.">
-          ليس ترجمةً لتطبيق إنجليزي. الواجهة عربية، والإملاء الصوتي عربي، والقراءة بصوت شامي،
-          والنصّ يُهيَّأ قبل النطق فتُقرأ «مثلاً» صحيحةً لا «مثلنن».
-        </p>
-      </div>
-      <div class="card reveal">
-        <div class="k">٢</div>
-        <h3 data-ar="مفتاحك، وتكلفتك، وخصوصيتك" data-en="Your key, your cost, your privacy">مفتاحك، وتكلفتك، وخصوصيتك</h3>
-        <p data-ar="تُنشئ المفتاح عند المزوّد وتُدخله في هاتفك، فيُحفظ مشفَّراً في شريحة الأمان. لا نراه، ولا يمرّ بنا شيء — لأنه لا يوجد «نحن» في المسار أصلاً." data-en="You create the key with the provider and enter it on your phone, where it is encrypted in secure hardware. We never see it, because there is no 'we' on the path.">
-          تُنشئ المفتاح عند المزوّد وتُدخله في هاتفك، فيُحفظ مشفَّراً في شريحة الأمان.
-          لا نراه، ولا يمرّ بنا شيء — لأنه لا يوجد «نحن» في المسار أصلاً.
-        </p>
-      </div>
-      <div class="card reveal">
-        <div class="k">٣</div>
-        <h3 data-ar="ستّة أدمغة، تطبيق واحد" data-en="Six brains, one app">ستّة أدمغة، تطبيق واحد</h3>
-        <p data-ar="بدّل المزوّد في منتصف المحادثة. وإن سقط واحد، يعرض عليك التطبيق البدائل التي أعددتَها بدل أن يقف." data-en="Switch provider mid-conversation. If one fails, the app offers the alternatives you configured instead of stopping.">
-          بدّل المزوّد في منتصف المحادثة. وإن سقط واحد، يعرض عليك التطبيق البدائل التي
-          أعددتَها بدل أن يقف.
-        </p>
+      <div class="card reveal"><div class="icon">🔑</div>
+        <h3 data-en="Your keys, no middleman" data-ar="مفاتيحك، بلا وسيط">Your keys, no middleman</h3>
+        <p data-en="Claude, GPT, Gemini, DeepSeek and hundreds more through OpenRouter — each on your own key, kept encrypted in your phone's secure hardware. Switch model mid-conversation."
+           data-ar="Claude وGPT وGemini وDeepSeek ومئات غيرها عبر OpenRouter — كلٌّ بمفتاحك، محفوظاً مشفّراً في شريحة الأمان في هاتفك. بدّل النموذج في منتصف المحادثة.">Claude, GPT, Gemini, DeepSeek and hundreds more through OpenRouter — each on your own key, kept encrypted in your phone's secure hardware. Switch model mid-conversation.</p></div>
+      <div class="card reveal"><div class="icon">🖥️</div>
+        <h3 data-en="A free floor on your own computer" data-ar="أرضية مجانية على حاسوبك">A free floor on your own computer</h3>
+        <p data-en="Local models through Ollama, pictures with SD-Turbo and FLUX, dictation with Whisper and a reading voice with Piper — all on your graphics card, all for nothing."
+           data-ar="نماذج محلية عبر Ollama، وصور بـ SD-Turbo وFLUX، وإملاء بـ Whisper، وقراءة بصوت Piper — كلّها على بطاقة الرسوم في حاسوبك، وكلّها مجاناً.">Local models through Ollama, pictures with SD-Turbo and FLUX, dictation with Whisper and a reading voice with Piper — all on your graphics card, all for nothing.</p></div>
+      <div class="card reveal"><div class="icon">🎙️</div>
+        <h3 data-en="Talk the way you talk" data-ar="تكلّم كما تتكلّم">Talk the way you talk</h3>
+        <p data-en="Dictate in English or Arabic, dialect included, and see the words appear as you speak. Answers can be read aloud — by the phone, by a natural cloud voice on your key, or by your computer."
+           data-ar="أملِ بالعربية أو الإنجليزية، باللهجة أيضاً، وشاهد الكلمات تظهر وأنت تتكلّم. والأجوبة تُقرأ بصوت الهاتف، أو بصوت سحابي طبيعي بمفتاحك، أو بصوت حاسوبك.">Dictate in English or Arabic, dialect included, and see the words appear as you speak. Answers can be read aloud — by the phone, by a natural cloud voice on your key, or by your computer.</p></div>
+      <div class="card reveal"><div class="icon">❓</div>
+        <h3 data-en="It asks before it answers" data-ar="يسأل قبل أن يجيب">It asks before it answers</h3>
+        <p data-en="Braining mode turns a vague idea into a precise brief: a few focused questions, one at a time, then a plan the best-suited model carries out — step by step, with the reasons shown."
+           data-ar="«نمط الفهم» يحوّل الفكرة الغامضة إلى طلب محكم: أسئلة قليلة مركّزة واحداً تلو الآخر، ثم خطّة ينفّذها النموذج الأنسب لكلّ خطوة، مع ذكر السبب.">Braining mode turns a vague idea into a precise brief: a few focused questions, one at a time, then a plan the best-suited model carries out — step by step, with the reasons shown.</p></div>
+      <div class="card reveal"><div class="icon">🛠️</div>
+        <h3 data-en="Your computer's hands, from your pocket" data-ar="يدا حاسوبك، من جيبك">Your computer's hands, from your pocket</h3>
+        <p data-en="Hand a task to your PC from the phone: it reads, writes and runs, asks before anything risky, and reports exactly what changed. Signing keys and credential folders are never touched."
+           data-ar="أعطِ حاسوبك مهمّة من الهاتف: يقرأ ويكتب وينفّذ، ويستأذنك قبل أيّ شيء خطر، ويخبرك بالضبط بما تغيّر. مفاتيح التوقيع ومجلّدات الاعتماد لا تُمسّ أبداً.">Hand a task to your PC from the phone: it reads, writes and runs, asks before anything risky, and reports exactly what changed. Signing keys and credential folders are never touched.</p></div>
+      <div class="card reveal"><div class="icon">🔒</div>
+        <h3 data-en="Private by construction" data-ar="خاصّ ببنيته">Private by construction</h3>
+        <p data-en="No account, no analytics, no advertising id, no location. Your conversations stay on your phone until you delete them. There is no server to breach, because none was built."
+           data-ar="لا حساب، ولا تحليلات، ولا مُعرّف إعلاني، ولا موقع. محادثاتك على هاتفك حتى تحذفها. لا خادم يمكن اختراقه، لأنه لم يُبنَ أصلاً.">No account, no analytics, no advertising id, no location. Your conversations stay on your phone until you delete them. There is no server to breach, because none was built.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── how it connects ──────────────────────────────────────────────────────── -->
+<section id="connect">
+  <div class="wrap">
+    <h2 class="reveal" data-en="How your phone reaches your computer" data-ar="كيف يصل هاتفك إلى حاسوبك">How your phone reaches your computer</h2>
+    <p class="sub reveal" data-en="Pick a situation to see the path. Whichever way it goes, the traffic is encrypted and your computer only answers devices you paired."
+       data-ar="اختر حالةً لترى المسار. أيّاً كان الطريق، فالاتصال مشفّر، وحاسوبك لا يجيب إلا الأجهزة التي أقرنتها.">Pick a situation to see the path. Whichever way it goes, the traffic is encrypted and your computer only answers devices you paired.</p>
+    <div class="net reveal">
+      <svg viewBox="0 0 560 300" role="img" aria-labelledby="net-title">
+        <title id="net-title">Phone, computer and the three paths between them</title>
+        <g class="link" data-route="home">
+          <path class="base" d="M120 150 C 200 60, 360 60, 440 150"/><path class="flow" d="M120 150 C 200 60, 360 60, 440 150"/>
+          <text x="280" y="62" text-anchor="middle" data-en="home Wi-Fi" data-ar="شبكة البيت">home Wi-Fi</text>
+        </g>
+        <g class="link" data-route="tailscale">
+          <path class="base" d="M120 150 L 440 150"/><path class="flow" d="M120 150 L 440 150"/>
+          <text x="280" y="140" text-anchor="middle">Tailscale</text>
+        </g>
+        <g class="link" data-route="relay">
+          <path class="base" d="M120 150 C 200 250, 360 250, 440 150"/><path class="flow" d="M120 150 C 200 250, 360 250, 440 150"/>
+          <text x="280" y="248" text-anchor="middle" data-en="relay · coming" data-ar="الوسيط · قريباً">relay · coming</text>
+        </g>
+        <g class="node"><rect x="30" y="110" width="100" height="80" rx="16"/><text x="80" y="148" text-anchor="middle">📱</text><text x="80" y="175" text-anchor="middle" class="small" data-en="your phone" data-ar="هاتفك">your phone</text></g>
+        <g class="node"><rect x="430" y="110" width="100" height="80" rx="16"/><text x="480" y="148" text-anchor="middle">🖥️</text><text x="480" y="175" text-anchor="middle" class="small" data-en="your computer" data-ar="حاسوبك">your computer</text></g>
+      </svg>
+      <div class="explain">
+        <div class="routes" role="group" aria-label="Situations">
+          <button class="chip" type="button" data-show="home" aria-pressed="true" data-en="At home" data-ar="في البيت">At home</button>
+          <button class="chip" type="button" data-show="tailscale" aria-pressed="false" data-en="Away" data-ar="خارج البيت">Away</button>
+          <button class="chip" type="button" data-show="relay" aria-pressed="false" data-en="Away, no setup" data-ar="خارجه بلا إعداد">Away, no setup</button>
+        </div>
+        <div data-panel="home">
+          <h3 data-en="Same Wi-Fi: direct" data-ar="الشبكة نفسها: مباشرة">Same Wi-Fi: direct</h3>
+          <p data-en="Scan the pairing code your computer shows, once. From then on the phone finds the computer on your home network by itself and talks to it over HTTPS pinned to that one computer's certificate — nothing else on the Wi-Fi can pretend to be it."
+             data-ar="صوّر رمز الإقران الذي يعرضه حاسوبك، مرّة واحدة. بعدها يجد الهاتف حاسوبك في شبكة البيت وحده، ويتّصل به عبر HTTPS مثبَّت على شهادة ذلك الحاسوب وحده — فلا يستطيع جهاز آخر على الشبكة انتحال صفته.">Scan the pairing code your computer shows, once. From then on the phone finds the computer on your home network by itself and talks to it over HTTPS pinned to that one computer's certificate — nothing else on the Wi-Fi can pretend to be it.</p>
+        </div>
+        <div data-panel="tailscale" hidden>
+          <h3 data-en="Away from home: Tailscale" data-ar="خارج البيت: Tailscale">Away from home: Tailscale</h3>
+          <p data-en="Install the free Tailscale app on both devices and sign in with the same account. The phone reaches the computer through an encrypted private network; if Tailscale is off on the phone, the app says so in plain words."
+             data-ar="ثبّت تطبيق Tailscale المجاني على الجهازين وادخل بالحساب نفسه. يصل الهاتف إلى الحاسوب عبر شبكة خاصّة مشفّرة؛ وإن كان Tailscale مطفأً على الهاتف يقولها لك التطبيق بكلمات واضحة.">Install the free Tailscale app on both devices and sign in with the same account. The phone reaches the computer through an encrypted private network; if Tailscale is off on the phone, the app says so in plain words.</p>
+        </div>
+        <div data-panel="relay" hidden>
+          <h3 data-en="Coming: the relay" data-ar="قريباً: الوسيط">Coming: the relay</h3>
+          <p data-en="A small relay will carry messages between your paired devices when they cannot see each other — end-to-end encrypted, so the relay only ever holds sealed envelopes it cannot open. No extra app to install."
+             data-ar="وسيط صغير سينقل الرسائل بين أجهزتك المقترنة حين لا يرى بعضها بعضاً — مشفّرة من طرف إلى طرف، فلا يحمل الوسيط إلا أظرفاً مختومة لا يستطيع فتحها. بلا تطبيق إضافي.">A small relay will carry messages between your paired devices when they cannot see each other — end-to-end encrypted, so the relay only ever holds sealed envelopes it cannot open. No extra app to install.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── providers ────────────────────────────────────────────────────────────── -->
-<section id="brains">
+<!-- ── models ───────────────────────────────────────────────────────────────── -->
+<section id="models">
   <div class="wrap">
-    <h2 class="reveal" data-ar="الأدمغة التي تصلها" data-en="The brains it reaches">الأدمغة التي تصلها</h2>
-    <p class="sub reveal" data-ar="بمفتاحك عند كلٍّ منها. والدليل داخل التطبيق يشرح من أين تحصل على كل مفتاح، خطوةً خطوة." data-en="With your own key at each. The in-app guide shows where every key comes from, step by step.">
-      بمفتاحك عند كلٍّ منها. والدليل داخل التطبيق يشرح من أين تحصل على كل مفتاح، خطوةً خطوة.
-    </p>
-    <div class="pills reveal">
-      <span class="pill">Anthropic — Claude</span>
-      <span class="pill">OpenAI</span>
-      <span class="pill">Google — Gemini</span>
-      <span class="pill">DeepSeek</span>
-      <span class="pill">OpenRouter</span>
-      <span class="pill" data-ar="Ollama — على حاسبك أنت" data-en="Ollama — on your own PC">Ollama — على حاسبك أنت</span>
-    </div>
-    <p class="note reveal" data-ar="وللنسخ الصوتي: محرّك هاتفك مجّاناً، أو Deepgram بمفتاحك. وللقراءة بصوت شامي: Azure بمفتاحك." data-en="For transcription: your phone's engine free, or Deepgram with your key. For the Levantine reading voice: Azure with your key.">
-      وللنسخ الصوتي: محرّك هاتفك مجّاناً، أو Deepgram بمفتاحك. وللقراءة بصوت شامي: Azure بمفتاحك.
-    </p>
-  </div>
-</section>
-
-<!-- ── clarify ──────────────────────────────────────────────────────────────── -->
-<section id="clarify">
-  <div class="wrap">
-    <h2 class="reveal" data-ar="التطبيق الذي يسألك أنت أوّلاً" data-en="The app that questions you first">التطبيق الذي يسألك أنت أوّلاً</h2>
-    <p class="sub reveal" data-ar="أكثر جواب رديء سببه سؤال ناقص. «الاستجواب» يقلب الترتيب: قبل أن يذهب طلبك إلى النموذج، يسألك التطبيق اثني عشر سؤالاً عن فكرتك، ثم يصوغ منها طلباً محكماً." data-en="Most bad answers come from an incomplete question. Clarify inverts the order: before your request reaches the model, the app asks you twelve questions and forges a precise brief from your answers.">
-      أكثر جواب رديء سببه سؤال ناقص. «الاستجواب» يقلب الترتيب: قبل أن يذهب طلبك إلى النموذج،
-      يسألك التطبيق اثني عشر سؤالاً عن فكرتك، ثم يصوغ منها طلباً محكماً.
-    </p>
-    <div class="grid">
-      <div class="card reveal"><h3 data-ar="اثنا عشر سؤالاً" data-en="Twelve questions">اثنا عشر سؤالاً</h3><p data-ar="سؤال واحد في كل شاشة، ويمكنك الرجوع دون أن تفقد جواباً." data-en="One question per screen, and you can go back without losing an answer.">سؤال واحد في كل شاشة، ويمكنك الرجوع دون أن تفقد جواباً.</p></div>
-      <div class="card reveal"><h3 data-ar="مهارات" data-en="Skills">مهارات</h3><p data-ar="نصوص تشرح للنموذج كيف يُنجَز نوعٌ من العمل جيّداً — تخطيط، شرح، كتابة، تحليل. يختار التطبيق ما يناسب فكرتك تلقائياً." data-en="Texts telling the model how a kind of work is done well. The app picks what fits your idea.">نصوص تشرح للنموذج كيف يُنجَز نوعٌ من العمل جيّداً — تخطيط، شرح، كتابة، تحليل. يختار التطبيق ما يناسب فكرتك تلقائياً.</p></div>
-      <div class="card reveal"><h3 data-ar="يُحفَظ ويُعاد" data-en="Saved and re-run">يُحفَظ ويُعاد</h3><p data-ar="كل جلسة تبقى في السجلّ باسم يكتبه النموذج، وتستطيع إعادة تنفيذها بمزوّد آخر." data-en="Every session stays in History under a model-written name, and can be re-run on another provider.">كل جلسة تبقى في السجلّ باسم يكتبه النموذج، وتستطيع إعادة تنفيذها بمزوّد آخر.</p></div>
+    <h2 class="reveal" data-en="Bring the brains you like" data-ar="أحضر العقول التي تفضّلها">Bring the brains you like</h2>
+    <p class="sub reveal" data-en="Free first: what runs on your computer is tried before anything you pay for, and paid models are only used when you choose them."
+       data-ar="المجاني أوّلاً: ما يعمل على حاسوبك يُجرَّب قبل أيّ شيء مدفوع، والنماذج المدفوعة لا تُستعمل إلا حين تختارها.">Free first: what runs on your computer is tried before anything you pay for, and paid models are only used when you choose them.</p>
+    <div class="cols reveal">
+      <div><h3 data-en="Chat" data-ar="المحادثة">Chat</h3><div class="pills">
+        <span class="pill">Anthropic Claude</span><span class="pill">OpenAI</span><span class="pill">Google Gemini</span><span class="pill">DeepSeek</span>
+        <span class="pill">OpenRouter <b data-en="· hundreds of models" data-ar="· مئات النماذج">· hundreds of models</b></span><span class="pill">Ollama <b data-en="· on your PC" data-ar="· على حاسوبك">· on your PC</b></span></div></div>
+      <div><h3 data-en="Voice" data-ar="الصوت">Voice</h3><div class="pills">
+        <span class="pill">Deepgram</span><span class="pill">Whisper <b data-en="· on your PC" data-ar="· على حاسوبك">· on your PC</b></span>
+        <span class="pill">ElevenLabs</span><span class="pill">Piper <b data-en="· on your PC" data-ar="· على حاسوبك">· on your PC</b></span><span class="pill" data-en="your phone's own engine" data-ar="محرّك هاتفك">your phone's own engine</span></div></div>
+      <div><h3 data-en="Pictures" data-ar="الصور">Pictures</h3><div class="pills">
+        <span class="pill">SD-Turbo <b data-en="· on your PC" data-ar="· على حاسوبك">· on your PC</b></span><span class="pill">FLUX.1 <b data-en="· on your PC" data-ar="· على حاسوبك">· on your PC</b></span>
+        <span class="pill">Pollinations <b data-en="· free online" data-ar="· مجاني عبر الإنترنت">· free online</b></span><span class="pill" data-en="OpenRouter image models" data-ar="نماذج صور OpenRouter">OpenRouter image models</span><span class="pill">FLUX.2</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── the PC ───────────────────────────────────────────────────────────────── -->
-<section id="pc">
+<!-- ── guide ────────────────────────────────────────────────────────────────── -->
+<section id="guide">
   <div class="wrap">
-    <h2 class="reveal" data-ar="حاسبك، وأنت بعيد عنه" data-en="Your PC, from anywhere">حاسبك، وأنت بعيد عنه</h2>
-    <p class="sub reveal" data-ar="شغّل الجسر على حاسبك أنت، فتستطيع أن تطلب منه مهامّ من هاتفك: يقرأ ملفّاتك، يكتب، ينفّذ — ثم يخبرك بما تغيّر بالضبط. الثقة هي كل الموضوع، فلنقل بوضوح ما لا يفعله." data-en="Run the bridge on your own PC and hand it tasks from your phone: it reads your files, writes, executes — then tells you exactly what changed. Trust is the whole point, so here is what it does not do.">
-      شغّل الجسر على حاسبك أنت، فتستطيع أن تطلب منه مهامّ من هاتفك: يقرأ ملفّاتك، يكتب، ينفّذ —
-      ثم يخبرك بما تغيّر بالضبط. الثقة هي كل الموضوع، فلنقل بوضوح ما لا يفعله.
-    </p>
-
-    <div class="guard reveal">
-      <h4 data-ar="لا يصل أحد إلى حاسبك غيرك" data-en="Nobody but you reaches your PC">لا يصل أحد إلى حاسبك غيرك</h4>
-      <p data-ar="الجسر يعمل على جهازك وحده، برمزٍ تولّده أنت، ولا يستمع إلا على عنوان Tailscale الخاص بك. لا يوجد باب خلفي، ولا وصول عن بُعد لأجهزة المستخدمين — وقد رُفض بناء ذلك صراحةً." data-en="The bridge runs on your machine alone, with a token you generate, listening only on your Tailscale address. There is no backdoor and no remote access to users' devices; building one was explicitly refused.">
-        الجسر يعمل على جهازك وحده، برمزٍ تولّده أنت، ولا يستمع إلا على عنوان Tailscale الخاص بك.
-        لا يوجد باب خلفي، ولا وصول عن بُعد لأجهزة المستخدمين — وقد رُفض بناء ذلك صراحةً.
-      </p>
-    </div>
-    <div class="guard reveal">
-      <h4 data-ar="يستأذنك قبل ما يؤذي" data-en="It asks before anything destructive">يستأذنك قبل ما يؤذي</h4>
-      <p data-ar="الجسر — لا النموذج — هو من يقرّر ما يحتاج إذناً. فلا يستطيع جوابُ نموذجٍ أن يوسّع صلاحيات نفسه بالإقناع." data-en="The bridge — not the model — decides what needs approval. So a model's output cannot argue its way into more access.">
-        الجسر — لا النموذج — هو من يقرّر ما يحتاج إذناً. فلا يستطيع جوابُ نموذجٍ أن يوسّع صلاحيات
-        نفسه بالإقناع.
-      </p>
-    </div>
-    <div class="guard reveal">
-      <h4 data-ar="ملفّات لا تُقرأ أبداً" data-en="Files it will never read">ملفّات لا تُقرأ أبداً</h4>
-      <p data-ar="مفاتيح التوقيع، وملفّات الاعتماد، و‎.ssh و‎.gnupg و‎.aws — مرفوضة قراءةً وكتابةً مهما طُلِب. وكل ما يجري يُسجَّل في سجلّ على حاسبك لا يستطيع التطبيق تعديله." data-en="Signing keys, credential files, .ssh, .gnupg and .aws are refused for both reading and writing, whatever is asked. Everything is written to a log on your PC that the app cannot edit.">
-        مفاتيح التوقيع، وملفّات الاعتماد، و‎.ssh و‎.gnupg و‎.aws — مرفوضة قراءةً وكتابةً مهما طُلِب.
-        وكل ما يجري يُسجَّل في سجلّ على حاسبك لا يستطيع التطبيق تعديله.
-      </p>
+    <h2 class="reveal" data-en="The guide, step by step" data-ar="الدليل، خطوةً خطوة">The guide, step by step</h2>
+    <p class="sub reveal" data-en="Open only the step you need. The app itself has a guided setup and a help assistant that answers from this same guide."
+       data-ar="افتح الخطوة التي تحتاجها فقط. وفي التطبيق نفسه إعداد موجَّه ومساعد دعم يجيب من هذا الدليل.">Open only the step you need. The app itself has a guided setup and a help assistant that answers from this same guide.</p>
+    <div class="reveal">
+      <details open><summary><span class="num">1</span><span data-en="Install and open" data-ar="ثبّت وافتح">Install and open</span></summary><div class="body">
+        <ol><li data-en="Download the app (see “Get the app” below) and allow installing it when Android asks." data-ar="حمّل التطبيق (انظر «احصل على التطبيق» في الأسفل) واسمح بتثبيته حين يسأل أندرويد.">Download the app (see “Get the app” below) and allow installing it when Android asks.</li>
+        <li data-en="The first screens ask how you want answers, which languages you speak and read, and a short note about you — all stay on the phone." data-ar="الشاشات الأولى تسألك كيف تريد الأجوبة، وأيّ لغات تتكلّم وتقرأ، ونبذة قصيرة عنك — وكلّها تبقى على الهاتف.">The first screens ask how you want answers, which languages you speak and read, and a short note about you — all stay on the phone.</li></ol></div></details>
+      <details><summary><span class="num">2</span><span data-en="Choose your brain" data-ar="اختر العقل">Choose your brain</span></summary><div class="body">
+        <ol><li data-en="Settings → AI models: paste a key from any provider you use. Each card links to the page where that provider issues keys." data-ar="الإعدادات ← نماذج الذكاء الاصطناعي: الصق مفتاحاً من أيّ مزوّد تستعمله. كلّ بطاقة تفتح الصفحة التي يصدر منها المزوّد المفاتيح.">Settings → AI models: paste a key from any provider you use. Each card links to the page where that provider issues keys.</li>
+        <li data-en="No key? Install Ollama on your computer and pull a model — the app finds it and uses it for free." data-ar="ليس لديك مفتاح؟ ثبّت Ollama على حاسوبك ونزّل نموذجاً — يجده التطبيق ويستعمله مجاناً.">No key? Install Ollama on your computer and pull a model — the app finds it and uses it for free.</li>
+        <li data-en="“Key check” shows each key's balance and warns before one runs out." data-ar="«فحص المفاتيح» يعرض رصيد كلّ مفتاح وينبّهك قبل نفاده.">“Key check” shows each key's balance and warns before one runs out.</li></ol></div></details>
+      <details><summary><span class="num">3</span><span data-en="Connect your computer (preview)" data-ar="اربط حاسوبك (تجريبي)">Connect your computer (preview)</span></summary><div class="body">
+        <ol><li data-en="Start the Braining bridge on the computer. It is set up by hand for now; an installer is on the way — follow the channel." data-ar="شغّل جسر «فهم» على الحاسوب. يُعدّ يدوياً حالياً، والمثبّت في الطريق — تابع القناة.">Start the Braining bridge on the computer. It is set up by hand for now; an installer is on the way — follow the channel.</li>
+        <li data-en="On the computer, open the pairing page and point the phone's camera at the code. Tap the link, then “Pair”." data-ar="على الحاسوب افتح صفحة الإقران ووجّه كاميرا الهاتف إلى الرمز. اضغط الرابط ثم «اربط».">On the computer, open the pairing page and point the phone's camera at the code. Tap the link, then “Pair”.</li>
+        <li data-en="At home it connects over your Wi-Fi; away, over Tailscale. The pairing page lists every paired device and removes any of them." data-ar="في البيت يتّصل عبر شبكتك؛ وخارجه عبر Tailscale. صفحة الإقران تعرض كلّ جهاز مقترن وتزيل أيّاً منها.">At home it connects over your Wi-Fi; away, over Tailscale. The pairing page lists every paired device and removes any of them.</li></ol></div></details>
+      <details><summary><span class="num">4</span><span data-en="Talk and listen" data-ar="تكلّم واستمع">Talk and listen</span></summary><div class="body">
+        <ol><li data-en="Tap the microphone and speak; the words appear as you talk. Edit them, then send." data-ar="اضغط الميكروفون وتكلّم؛ تظهر الكلمات أثناء كلامك. عدّلها ثم أرسل.">Tap the microphone and speak; the words appear as you talk. Edit them, then send.</li>
+        <li data-en="“Improve” rewords what you wrote, in the same language, and “Undo” brings it back." data-ar="«حسّن الأمر» يعيد صياغة ما كتبت باللغة نفسها، و«تراجع» يعيده.">“Improve” rewords what you wrote, in the same language, and “Undo” brings it back.</li>
+        <li data-en="Settings → Voice: choose who reads answers aloud — the phone, a cloud voice on your key, or your computer." data-ar="الإعدادات ← الصوت: اختر من يقرأ الأجوبة — الهاتف، أو صوت سحابي بمفتاحك، أو حاسوبك.">Settings → Voice: choose who reads answers aloud — the phone, a cloud voice on your key, or your computer.</li></ol></div></details>
+      <details><summary><span class="num">5</span><span data-en="Pictures and files" data-ar="الصور والملفّات">Pictures and files</span></summary><div class="body">
+        <ol><li data-en="Ask for a picture in plain words. The fast free model draws first; tap another model under it for a higher-quality version." data-ar="اطلب صورة بكلام عادي. يرسم النموذج المجاني السريع أوّلاً؛ اضغط نموذجاً آخر تحتها لنسخة أعلى جودة.">Ask for a picture in plain words. The fast free model draws first; tap another model under it for a higher-quality version.</li>
+        <li data-en="While it draws you can switch to another model; if one fails, the next free one takes over and the app says why." data-ar="أثناء الرسم تستطيع التبديل إلى نموذج آخر؛ وإن فشل نموذج تولّى المجاني التالي وقال التطبيق السبب.">While it draws you can switch to another model; if one fails, the next free one takes over and the app says why.</li>
+        <li data-en="Attach a photo and ask about it, attach a text file, or an audio file to turn into text." data-ar="أرفق صورة واسأل عنها، أو ملفّاً نصّياً، أو ملفّاً صوتياً يصير نصّاً.">Attach a photo and ask about it, attach a text file, or an audio file to turn into text.</li></ol></div></details>
+      <details><summary><span class="num">6</span><span data-en="Braining mode" data-ar="نمط الفهم">Braining mode</span></summary><div class="body">
+        <ol><li data-en="Turn it on for a bigger task. The app asks focused questions one at a time; skip any you like." data-ar="شغّله لمهمّة أكبر. يسألك التطبيق أسئلة مركّزة واحداً تلو الآخر؛ تجاوز ما شئت.">Turn it on for a bigger task. The app asks focused questions one at a time; skip any you like.</li>
+        <li data-en="It writes a plan, gives each step to the model best suited to it, and shows the result of every step." data-ar="يكتب خطّة، ويعطي كلّ خطوة للنموذج الأنسب لها، ويعرض نتيجة كلّ خطوة.">It writes a plan, gives each step to the model best suited to it, and shows the result of every step.</li></ol></div></details>
+      <details><summary><span class="num">?</span><span data-en="When something does not work" data-ar="حين لا يعمل شيء">When something does not work</span></summary><div class="body">
+        <ul><li data-en="“Tailscale is off on this phone”: open Tailscale, tap Connect, and set it as an always-on VPN in Android's settings." data-ar="«Tailscale مطفأ على هذا الهاتف»: افتح Tailscale واضغط Connect، واجعله VPN دائم التشغيل في إعدادات أندرويد.">“Tailscale is off on this phone”: open Tailscale, tap Connect, and set it as an always-on VPN in Android's settings.</li>
+        <li data-en="“The computer did not answer”: check the computer is awake and the bridge is running, and that both are on the same Wi-Fi at home." data-ar="«لم يُجب الحاسب»: تأكّد أنّ الحاسوب مستيقظ والجسر يعمل، وأنّ الجهازين على الشبكة نفسها في البيت.">“The computer did not answer”: check the computer is awake and the bridge is running, and that both are on the same Wi-Fi at home.</li>
+        <li data-en="A key refused: “Key check” in Settings says which one and why." data-ar="مفتاح مرفوض: «فحص المفاتيح» في الإعدادات يقول أيّها ولماذا.">A key refused: “Key check” in Settings says which one and why.</li></ul></div></details>
     </div>
   </div>
 </section>
@@ -167,42 +212,52 @@
 <!-- ── privacy ──────────────────────────────────────────────────────────────── -->
 <section id="privacy">
   <div class="wrap">
-    <h2 class="reveal" data-ar="الخصوصية، في شاشة واحدة" data-en="Privacy, in one screen">الخصوصية، في شاشة واحدة</h2>
-    <p class="sub reveal" data-ar="ليست وعداً، بل نتيجةٌ لبنية التطبيق: لا يوجد خادم يمكن أن يُخترق، لأنه لم يُبنَ." data-en="Not a promise but a consequence of the architecture: there is no server to breach, because none was built.">
-      ليست وعداً، بل نتيجةٌ لبنية التطبيق: لا يوجد خادم يمكن أن يُخترق، لأنه لم يُبنَ.
-    </p>
-    <div class="promise reveal">
-      <ul>
-        <li data-ar="<strong>لا نجمع شيئاً.</strong> لا حساب، ولا تحليلات، ولا مُعرّف إعلاني، ولا موقع جغرافي — التطبيق لا يطلب إذن الموقع إطلاقاً."
-            data-en="<strong>We collect nothing.</strong> No account, no analytics, no advertising id, no location — the app never requests the location permission."><strong>لا نجمع شيئاً.</strong> لا حساب، ولا تحليلات، ولا مُعرّف إعلاني، ولا موقع جغرافي — التطبيق لا يطلب إذن الموقع إطلاقاً.</li>
-        <li data-ar="<strong>مفاتيحك</strong> في شريحة الأمان في هاتفك، ولا تُنسَخ إلى حساب Google الخاص بك."
-            data-en="<strong>Your keys</strong> live in your phone's secure hardware and are never copied to your Google account."><strong>مفاتيحك</strong> في شريحة الأمان في هاتفك، ولا تُنسَخ إلى حساب Google الخاص بك.</li>
-        <li data-ar="<strong>الصوت الخام لا يُحفَظ أبداً</strong> — يُحوَّل إلى نصّ ويُتلَف فوراً."
-            data-en="<strong>Raw audio is never stored</strong> — it becomes text and is discarded."><strong>الصوت الخام لا يُحفَظ أبداً</strong> — يُحوَّل إلى نصّ ويُتلَف فوراً.</li>
-        <li data-ar="<strong>محادثاتك وسجلّك</strong> على جهازك حتى تحذفها أنت."
-            data-en="<strong>Your conversations and history</strong> stay on your device until you delete them."><strong>محادثاتك وسجلّك</strong> على جهازك حتى تحذفها أنت.</li>
-        <li data-ar="<strong>لا يخرج تقرير عطل</strong> إلا بضغطك أنت، وتراه قبل إرساله، ولا يحتوي مفتاحاً ولا موقعاً ولا اسماً."
-            data-en="<strong>No diagnostic report leaves</strong> without your tap; you see it first, and it carries no key, no location and no name."><strong>لا يخرج تقرير عطل</strong> إلا بضغطك أنت، وتراه قبل إرساله، ولا يحتوي مفتاحاً ولا موقعاً ولا اسماً.</li>
-      </ul>
-    </div>
-    <p class="note reveal">
-      <a href="privacy.html" data-ar="سياسة الخصوصية كاملة" data-en="The full privacy policy">سياسة الخصوصية كاملة</a> ·
-      <a href="terms.html" data-ar="شروط الاستخدام" data-en="Terms of use">شروط الاستخدام</a>
-    </p>
+    <h2 class="reveal" data-en="Privacy, in one screen" data-ar="الخصوصية، في شاشة واحدة">Privacy, in one screen</h2>
+    <p class="sub reveal" data-en="Not a promise but a consequence of how it is built." data-ar="ليست وعداً، بل نتيجةٌ لطريقة بنائه.">Not a promise but a consequence of how it is built.</p>
+    <div class="promise reveal"><ul>
+      <li data-en="<strong>Nothing is collected.</strong> No account, no analytics, no advertising id; the app never asks for your location." data-ar="<strong>لا يُجمع شيء.</strong> لا حساب، ولا تحليلات، ولا مُعرّف إعلاني؛ ولا يطلب التطبيق موقعك أبداً."><strong>Nothing is collected.</strong> No account, no analytics, no advertising id; the app never asks for your location.</li>
+      <li data-en="<strong>Your keys</strong> are encrypted in the phone's secure hardware and never copied to a cloud backup." data-ar="<strong>مفاتيحك</strong> مشفّرة في شريحة الأمان في الهاتف، ولا تُنسخ إلى نسخ احتياطي سحابي."><strong>Your keys</strong> are encrypted in the phone's secure hardware and never copied to a cloud backup.</li>
+      <li data-en="<strong>Your words go only where you send them</strong> — to the model you chose, or to your own computer." data-ar="<strong>كلامك يذهب حيث ترسله فقط</strong> — إلى النموذج الذي اخترته، أو إلى حاسوبك أنت."><strong>Your words go only where you send them</strong> — to the model you chose, or to your own computer.</li>
+      <li data-en="<strong>Raw audio is never kept</strong> — it becomes text and is deleted, on the phone and on the computer." data-ar="<strong>الصوت الخام لا يُحفظ</strong> — يصير نصّاً ويُحذف، على الهاتف وعلى الحاسوب."><strong>Raw audio is never kept</strong> — it becomes text and is deleted, on the phone and on the computer.</li>
+      <li data-en="<strong>No diagnostic report leaves</strong> unless you tap send, after seeing it." data-ar="<strong>لا يخرج تقرير عطل</strong> إلا حين تضغط «أرسل» بعد أن تراه."><strong>No diagnostic report leaves</strong> unless you tap send, after seeing it.</li>
+    </ul></div>
+    <p class="note reveal"><a href="privacy.html" data-en="Full privacy policy" data-ar="سياسة الخصوصية كاملة">Full privacy policy</a> · <a href="terms.html" data-en="Terms of use" data-ar="شروط الاستخدام">Terms of use</a></p>
   </div>
 </section>
 
-<!-- ── download ─────────────────────────────────────────────────────────────── -->
+<!-- ── questions ─────────────────────────────────────────────────────────────── -->
+<section id="faq">
+  <div class="wrap">
+    <h2 class="reveal" data-en="Questions people ask" data-ar="أسئلة يطرحها الناس">Questions people ask</h2>
+    <div class="reveal">
+      <details><summary data-en="Is it free?" data-ar="هل هو مجاني؟">Is it free?</summary><div class="body"><p data-en="The app is free. Models on your own computer cost nothing; cloud models cost whatever their provider charges your key — the app shows the price class before you pick one." data-ar="التطبيق مجاني. النماذج على حاسوبك لا تكلّف شيئاً؛ والنماذج السحابية تكلّف ما يأخذه مزوّدها من مفتاحك — ويعرض التطبيق فئة السعر قبل أن تختار.">The app is free. Models on your own computer cost nothing; cloud models cost whatever their provider charges your key — the app shows the price class before you pick one.</p></div></details>
+      <details><summary data-en="Do I need a powerful computer?" data-ar="هل أحتاج حاسوباً قويّاً؟">Do I need a powerful computer?</summary><div class="body"><p data-en="No computer is needed at all if you use cloud keys. For the free features, a graphics card helps: on a laptop card with 6 GB, a quick picture takes seconds, a high-quality one a few minutes, and dictation is near-instant." data-ar="لا تحتاج حاسوباً أصلاً إن استعملت مفاتيح سحابية. للميزات المجانية تفيد بطاقة الرسوم: على بطاقة حاسوب محمول بـ ٦ غيغا تأخذ الصورة السريعة ثوانيَ، والعالية الجودة دقائق قليلة، والإملاء شبه فوري.">No computer is needed at all if you use cloud keys. For the free features, a graphics card helps: on a laptop card with 6 GB, a quick picture takes seconds, a high-quality one a few minutes, and dictation is near-instant.</p></div></details>
+      <details><summary data-en="Isn't it just a wrapper?" data-ar="أليس مجرّد واجهة؟">Isn't it just a wrapper?</summary><div class="body"><p data-en="It is a client, and says so. What it adds: voice that works in Arabic dialects, questions before answers, free fallbacks when a model fails, and a way to put your own computer to work." data-ar="هو عميل، ويقولها صراحة. ما يضيفه: صوت يعمل باللهجات العربية، وأسئلة قبل الأجوبة، وبدائل مجانية حين يفشل نموذج، وطريقة لتشغيل حاسوبك أنت.">It is a client, and says so. What it adds: voice that works in Arabic dialects, questions before answers, free fallbacks when a model fails, and a way to put your own computer to work.</p></div></details>
+      <details><summary data-en="Can the app control my computer without me?" data-ar="هل يتحكّم التطبيق بحاسوبي دون علمي؟">Can the app control my computer without me?</summary><div class="body"><p data-en="No. The bridge only answers devices you paired, asks before risky actions, refuses credential folders outright, and keeps a log on your computer that the app cannot edit. There is no remote access for anyone else — building one was refused." data-ar="لا. الجسر لا يجيب إلا الأجهزة التي أقرنتها، ويستأذن قبل الأفعال الخطرة، ويرفض مجلّدات الاعتماد رفضاً قاطعاً، ويحفظ سجلّاً على حاسوبك لا يستطيع التطبيق تعديله. لا وصول عن بُعد لأحد غيرك — وقد رُفض بناء ذلك.">No. The bridge only answers devices you paired, asks before risky actions, refuses credential folders outright, and keeps a log on your computer that the app cannot edit. There is no remote access for anyone else — building one was refused.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ── get + contact ────────────────────────────────────────────────────────── -->
 <section id="get">
   <div class="wrap">
-    <h2 class="reveal" data-ar="ابدأ" data-en="Get started">ابدأ</h2>
-    <p class="sub reveal" data-ar="حمّل الملفّ، ثبّته، وافتحه. إن لم يكن لديك مفتاح بعد، جرّب التطبيق بعدد محدود من الطلبات قبل أن تقرّر." data-en="Download it, install it, open it. With no key yet, try it on a limited number of requests before deciding.">
-      حمّل الملفّ، ثبّته، وافتحه. إن لم يكن لديك مفتاح بعد، جرّب التطبيق بعدد محدود من الطلبات
-      قبل أن تقرّر.
-    </p>
+    <h2 class="reveal" data-en="Get the app" data-ar="احصل على التطبيق">Get the app</h2>
+    <p class="sub reveal" data-en="Braining is in a public preview. New builds are posted on the official channel first; Google Play follows." data-ar="«فهم» في مرحلة تجريبية عامّة. تُنشر النسخ الجديدة في القناة الرسمية أوّلاً، ثم على Google Play.">Braining is in a public preview. New builds are posted on the official channel first; Google Play follows.</p>
     <div class="cta reveal">
-      <a class="btn" href="https://github.com/Moustafa-Afara/Braining/releases/latest" data-ar="آخر إصدار" data-en="Latest release">آخر إصدار</a>
-      <a class="btn ghost" href="https://t.me/Braining_AI" data-ar="أخبار التطبيق" data-en="App news">أخبار التطبيق</a>
+      <a class="btn" href="https://t.me/Braining_AI" data-en="Download from the channel" data-ar="حمّل من القناة">Download from the channel</a>
+      <span class="btn ghost" aria-disabled="true" data-en="Google Play — soon" data-ar="Google Play — قريباً">Google Play — soon</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2 class="reveal" data-en="Contact" data-ar="تواصل">Contact</h2>
+    <p class="sub reveal" data-en="Questions, bugs and ideas are welcome. The channel is the quickest way." data-ar="الأسئلة والأعطال والأفكار مرحّب بها. القناة أسرع طريق.">Questions, bugs and ideas are welcome. The channel is the quickest way.</p>
+    <div class="contact reveal">
+      <a href="https://t.me/Braining_AI"><span class="icon">📣</span><span><b data-en="Official channel" data-ar="القناة الرسمية">Official channel</b><small>Telegram · @Braining_AI</small></span></a>
+      <a href="https://t.me/Mustafa_Afara"><span class="icon">💬</span><span><b data-en="The developer" data-ar="المطوّر">The developer</b><small>Telegram · Moustafa Afara</small></span></a>
+      <a href="https://github.com/Moustafa-Afara"><span class="icon">🐙</span><span><b>GitHub</b><small>Moustafa-Afara</small></span></a>
     </div>
   </div>
 </section>
@@ -212,11 +267,11 @@
 <footer>
   <div class="wrap">
     <div class="foot-links">
-      <a href="privacy.html" data-ar="الخصوصية" data-en="Privacy">الخصوصية</a>
-      <a href="terms.html" data-ar="الشروط" data-en="Terms">الشروط</a>
+      <a href="privacy.html" data-en="Privacy" data-ar="الخصوصية">Privacy</a>
+      <a href="terms.html" data-en="Terms" data-ar="الشروط">Terms</a>
       <a href="https://t.me/Braining_AI">@Braining_AI</a>
     </div>
-    <div>© 2026 <a href="https://t.me/Mustafa_Afara">Moustafa Afara</a><span data-ar=" — جميع الحقوق محفوظة." data-en=" — all rights reserved."> — جميع الحقوق محفوظة.</span></div>
+    <div>© 2026 <a href="https://t.me/Mustafa_Afara">Moustafa Afara</a><span data-en=" — all rights reserved." data-ar=" — جميع الحقوق محفوظة."> — all rights reserved.</span></div>
   </div>
 </footer>
 

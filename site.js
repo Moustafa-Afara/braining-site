@@ -1,143 +1,143 @@
-/*
- * Braining site — all of its behaviour. L6.
- *
- * Three things and no more: a language toggle that swaps direction as well as strings, a theme
- * toggle, and one typed demo. No framework, no analytics, no network requests of any kind — a
- * site for an app that promises "nothing leaves your phone" has no business phoning anywhere
- * either, and this file is short enough that a visitor can read it and check.
- */
-(function () {
-  'use strict';
-
-  var html = document.documentElement;
-
-  // ── language ────────────────────────────────────────────────────────────────────────
-  //
-  // Every translatable node carries both texts in `data-ar` / `data-en`, so the page holds one
-  // copy of its content in the markup and switching is a re-read rather than a fetch. The `dir`
-  // attribute moves with it: swapping strings without swapping direction is the classic way an
-  // RTL site ends up looking translated rather than written.
-  function setLang(lang) {
-    var ar = lang === 'ar';
-    html.lang = ar ? 'ar' : 'en';
-    html.dir = ar ? 'rtl' : 'ltr';
-    var nodes = document.querySelectorAll('[data-ar]');
-    for (var i = 0; i < nodes.length; i++) {
-      var t = nodes[i].getAttribute(ar ? 'data-ar' : 'data-en');
-      if (t !== null) nodes[i].innerHTML = t;
-    }
-    var btn = document.getElementById('lang');
-    if (btn) btn.textContent = ar ? 'English' : 'العربية';
-    try { localStorage.setItem('lang', lang); } catch (e) { /* private mode: the default is fine */ }
+// Braining site — the whole script (E, 2026-09-25). No dependencies, no requests, no storage but
+// two per-visitor conveniences (language, theme), each wrapped because storage can be refused.
+(() => {
+  const root = document.documentElement
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k) } catch { return null } },
+    set: (k, v) => { try { localStorage.setItem(k, v) } catch { /* private mode */ } },
   }
 
-  var langBtn = document.getElementById('lang');
-  if (langBtn) {
-    langBtn.addEventListener('click', function () {
-      setLang(html.lang === 'ar' ? 'en' : 'ar');
-    });
+  // ── theme ──────────────────────────────────────────────────────────────────
+  const savedTheme = store.get('theme')
+  if (savedTheme) root.dataset.theme = savedTheme
+  const themeBtn = document.getElementById('theme')
+  if (themeBtn) themeBtn.addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+    root.dataset.theme = dark ? 'light' : 'dark'
+    store.set('theme', root.dataset.theme)
+  })
+
+  // ── language: English first; Arabic for an Arabic browser or when chosen ─────
+  const hasBilingual = !!document.querySelector('[data-en]')
+  // ?lang=ar / ?lang=en in a shared link wins; then the visitor's own choice; then the browser.
+  const asked = new URLSearchParams(location.search).get('lang')
+  let lang = (asked === 'ar' || asked === 'en') ? asked
+    : store.get('lang') || ((navigator.language || '').toLowerCase().startsWith('ar') ? 'ar' : 'en')
+  function applyLang() {
+    if (!hasBilingual) return
+    root.lang = lang
+    root.dir = lang === 'ar' ? 'rtl' : 'ltr'
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      const html = el.getAttribute('data-' + lang)
+      if (html != null) el.innerHTML = html
+    })
+    document.title = lang === 'ar'
+      ? 'Braining «فهم» — كلّ نماذج الذكاء الاصطناعي، بمفاتيحك وعلى حاسوبك'
+      : 'Braining «فهم» — every AI model, your keys, your computer'
+    if (typeof playScene === 'function' && current) playScene(current)
   }
+  const langBtn = document.getElementById('lang')
+  if (langBtn) langBtn.addEventListener('click', () => { lang = lang === 'ar' ? 'en' : 'ar'; store.set('lang', lang); applyLang() })
 
-  // A visitor whose browser is not set to Arabic gets English on first load; a returning one gets
-  // whatever they chose. Wrapped, because storage throws outright in some privacy modes.
-  try {
-    var saved = localStorage.getItem('lang');
-    if (saved) setLang(saved);
-    else if ((navigator.language || '').slice(0, 2) !== 'ar') setLang('en');
-  } catch (e) { /* keep the markup's Arabic */ }
-
-  // ── theme ───────────────────────────────────────────────────────────────────────────
-  //
-  // Three states, like the app: explicit light, explicit dark, and — the default — no attribute
-  // at all, which lets `prefers-color-scheme` decide. The toggle only ever moves between the two
-  // explicit states once the visitor has expressed a preference.
-  var themeBtn = document.getElementById('theme');
-  try {
-    var savedTheme = localStorage.getItem('theme');
-    if (savedTheme) html.setAttribute('data-theme', savedTheme);
-  } catch (e) { /* system preference */ }
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var current = html.getAttribute('data-theme');
-      if (!current) {
-        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        current = systemDark ? 'dark' : 'light';
-      }
-      var next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-    });
-  }
-
-  // ── scroll reveal ───────────────────────────────────────────────────────────────────
-  //
-  // One effect, once per element. `IntersectionObserver` rather than a scroll listener so it
-  // costs nothing while idle; where it is missing, everything is simply visible.
-  var reveals = document.querySelectorAll('.reveal');
+  // ── reveal on scroll ───────────────────────────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal')
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -60px 0px' });
-    for (var j = 0; j < reveals.length; j++) io.observe(reveals[j]);
-  } else {
-    for (var k = 0; k < reveals.length; k++) reveals[k].classList.add('in');
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
+    }), { threshold: 0.12 })
+    reveals.forEach((el) => io.observe(el))
+  } else reveals.forEach((el) => el.classList.add('in'))
+
+  // ── the phone: short scripted scenes, played on demand ──────────────────────
+  const thread = document.getElementById('thread')
+  const model = document.getElementById('scene-model')
+  const route = document.getElementById('scene-route')
+  const T = (en, ar) => (lang === 'ar' ? ar : en)
+  const SCENES = {
+    chat: () => ({
+      model: 'Claude · claude-opus', route: T('home network', 'شبكة البيت'),
+      steps: [
+        { me: T('Summarise this week\'s sales report in three lines', 'لخّص تقرير مبيعات هذا الأسبوع في ثلاثة أسطر') },
+        { it: T('Sales rose 8% on last week, led by the new bundle. Returns fell. One region lags — worth a look before Monday.', 'ارتفعت المبيعات ٨٪ عن الأسبوع الماضي بفضل الباقة الجديدة. وانخفضت المرتجعات. منطقة واحدة متأخّرة — تستحقّ نظرة قبل الاثنين.'), meta: T('first word 1.4 s · Claude', 'أوّل كلمة ١٫٤ ث · Claude') },
+      ],
+    }),
+    voice: () => ({
+      model: 'Whisper · ' + T('your PC', 'حاسوبك'), route: T('home network', 'شبكة البيت'),
+      steps: [
+        { wave: true },
+        { me: T('Remind me what I planned for tomorrow', 'ذكّرني بشو خطّطت لبكرا') },
+        { it: T('Tomorrow: the dentist at 10, then finishing the slides. Shall I read it aloud?', 'بكرا: موعد طبيب الأسنان الساعة ١٠، ثم إنهاء الشرائح. أقرؤها لك بصوت عالٍ؟'), meta: T('read aloud by your PC · Piper', 'يقرؤها حاسوبك · Piper') },
+      ],
+    }),
+    picture: () => ({
+      model: 'SD-Turbo · ' + T('your PC', 'حاسوبك'), route: T('free', 'مجاني'),
+      steps: [
+        { me: T('Draw an orange cat programming on a laptop', 'ارسم قطّاً برتقالياً يبرمج على حاسوب محمول') },
+        { it: T('An orange cat sitting on a laptop, paws on the keys…', 'An orange cat sitting on a laptop, paws on the keys…'), meta: T('the command, written subject first', 'الأمر، يبدأ بالموضوع') },
+        { pic: true, meta: T('SD-Turbo · 12 s · free — or redraw with FLUX', 'SD-Turbo · ١٢ ث · مجاني — أو ارسمها بـ FLUX') },
+      ],
+    }),
+    pc: () => ({
+      model: T('Your PC · bridge', 'حاسوبك · الجسر'), route: 'Tailscale',
+      steps: [
+        { me: T('On my PC: rename the invoices in Downloads by date', 'على حاسوبي: أعد تسمية الفواتير في التنزيلات حسب التاريخ') },
+        { it: T('This will rename files. Allow?', 'هذا سيعيد تسمية ملفّات. تسمح؟'), meta: T('the bridge asks — not the model', 'الجسر يستأذن — لا النموذج') },
+        { me: T('Allow', 'اسمح') },
+        { it: T('Done: 14 files renamed. Here is exactly what changed.', 'تمّ: أُعيدت تسمية الملفّات. هذا ما تغيّر بالضبط.'), meta: T('report from your computer', 'تقرير من حاسوبك') },
+      ],
+    }),
+    clarify: () => ({
+      model: T('Braining mode', 'نمط الفهم'), route: T('several models', 'عدّة نماذج'),
+      steps: [
+        { me: T('I want to start a small online shop', 'أريد أن أفتح متجراً صغيراً على الإنترنت') },
+        { it: T('Before I plan it: what will you sell, and to whom?', 'قبل أن أخطّط: ماذا ستبيع، ولمن؟'), meta: T('one question at a time', 'سؤال واحد في كلّ مرّة') },
+        { me: T('Handmade soap, to people in my city', 'صابون يدوي، لأهل مدينتي') },
+        { it: T('Plan ready: suppliers, pricing, a first page and a launch week — each step on the model that suits it.', 'الخطّة جاهزة: المورّدون، التسعير، صفحة أولى وأسبوع إطلاق — كلّ خطوة على النموذج الأنسب لها.'), meta: T('step by step, reasons shown', 'خطوةً خطوة، مع ذكر السبب') },
+      ],
+    }),
   }
-
-  // ── the demo ────────────────────────────────────────────────────────────────────────
-  //
-  // A typed exchange, looping. It is decorative — `aria-hidden` on the container — so a screen
-  // reader is not made to sit through a typing animation, and someone who asked for reduced
-  // motion gets the finished text at once instead of the animation.
-  var demo = document.getElementById('demo');
-  if (demo) {
-    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var script = [
-      { who: 'me', text: 'لخّص لي هذا التقرير بثلاث نقاط، وقل لي ما الذي ينقصه.' },
-      { who: 'ai', text: '١ · المبيعات ارتفعت ١٨٪ في الربع الثالث، ومصدر الارتفاع سوق واحدة.\n' +
-                         '٢ · التكاليف ثابتة، فالهامش تحسّن بلا تغيير في التشغيل.\n' +
-                         '٣ · التوقّع للربع الرابع مبنيّ على استمرار تلك السوق وحدها.\n\n' +
-                         'ما ينقصه: لا يوجد رقم للعملاء المتكرّرين، وهو الرقم الذي يفصل بين نموّ ثابت وموسم جيّد.' }
-    ];
-
-    function bubble(who, text) {
-      var el = document.createElement('div');
-      el.className = 'bubble ' + who;
-      el.textContent = text;
-      demo.appendChild(el);
-      return el;
-    }
-
-    function typeInto(el, text, done) {
-      if (reduced) { el.textContent = text; done(); return; }
-      var i = 0;
-      var caret = document.createElement('span');
-      caret.className = 'caret';
-      el.appendChild(caret);
-      var timer = setInterval(function () {
-        i += 1;
-        el.textContent = text.slice(0, i);
-        el.appendChild(caret);
-        if (i >= text.length) { clearInterval(timer); caret.remove(); done(); }
-      }, 22);
-    }
-
-    function play(step) {
-      if (step >= script.length) {
-        // Hold the finished exchange for a while before starting over, so the page is not a
-        // flicker in the corner of the visitor's eye while they read the rest of it.
-        setTimeout(function () { demo.innerHTML = ''; play(0); }, 9000);
-        return;
-      }
-      var line = script[step];
-      var el = bubble(line.who, '');
-      typeInto(el, line.text, function () {
-        setTimeout(function () { play(step + 1); }, line.who === 'me' ? 550 : 400);
-      });
-    }
-
-    play(0);
+  let current = thread ? 'chat' : null
+  let timers = []
+  function bubble(step) {
+    const b = document.createElement('div')
+    if (step.wave) { b.className = 'bubble me'; b.innerHTML = '<span class="wave"><i></i><i></i><i></i><i></i><i></i></span>' }
+    else if (step.pic) { b.className = 'bubble it pic'; b.innerHTML = '<div class="art" aria-hidden="true"></div>' }
+    else { b.className = 'bubble ' + (step.me != null ? 'me' : 'it'); b.textContent = step.me != null ? step.me : step.it }
+    if (step.meta) { const m = document.createElement('span'); m.className = 'meta'; m.textContent = step.meta; b.appendChild(m) }
+    return b
   }
-})();
+  function playScene(name) {
+    if (!thread) return
+    current = name
+    timers.forEach(clearTimeout); timers = []
+    thread.innerHTML = ''
+    const scene = SCENES[name]()
+    model.textContent = scene.model
+    route.textContent = scene.route
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+    scene.steps.forEach((step, i) => {
+      timers.push(setTimeout(() => {
+        if (step.wave && thread.lastChild === null) { /* first step */ }
+        thread.appendChild(bubble(step))
+        // The waveform is replaced by the words it became.
+        if (!step.wave && thread.querySelector('.wave')) thread.querySelector('.wave').closest('.bubble').remove()
+      }, reduced ? 0 : i * 1100))
+    })
+  }
+  document.querySelectorAll('[data-scene]').forEach((btn) => btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-scene]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)))
+    playScene(btn.dataset.scene)
+  }))
+
+  // ── the connection diagram ─────────────────────────────────────────────────
+  function showRoute(name) {
+    document.querySelectorAll('.net .link').forEach((g) => g.classList.toggle('on', g.dataset.route === name))
+    document.querySelectorAll('[data-panel]').forEach((p) => { p.hidden = p.dataset.panel !== name })
+    document.querySelectorAll('[data-show]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.show === name)))
+  }
+  document.querySelectorAll('[data-show]').forEach((b) => b.addEventListener('click', () => showRoute(b.dataset.show)))
+  document.querySelectorAll('.net .link').forEach((g) => g.addEventListener('click', () => showRoute(g.dataset.route)))
+  if (document.querySelector('.net')) showRoute('home')
+
+  applyLang() // also plays the first scene
+})()
