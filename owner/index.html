@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- و٩٧ (R51) — the owner page: a static template with no data. Scripts and styles from this site
+     only; the one network road is the relay's WebSocket (wss:, or a self-hosted relay on this machine). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src wss: ws://127.0.0.1:* ws://localhost:*; base-uri 'none'; form-action 'none'; manifest-src 'none'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>صفحة المالك — فهم</title>
+<link rel="stylesheet" href="owner.css">
+<script type="module" src="owner.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b2"></i><i class="b1"></i></span>
+      <div><h1>صفحة المالك</h1><div class="sub" id="sub">تقويم حاسوبك وإشعاراته — للعرض فقط</div></div>
+    </div>
+    <div class="chips"><span class="chip" id="state" hidden></span><button type="button" id="theme" class="btn">فاتح / داكن</button></div>
+  </header>
+
+  <noscript><p class="card">تحتاج هذه الصفحة JavaScript.</p></noscript>
+
+  <!-- not paired, no link -->
+  <section class="card" id="welcome" hidden>
+    <h2>اربط هذا المتصفّح بحاسوبك</h2>
+    <p>هذه الصفحة لا تحمل بياناتك: تصير جهازاً مقترناً بجسر حاسوبك، فترى تقويمه وإشعاراته عبر الوسيط، مشفّرةً من طرف إلى طرف. <b>للعرض فقط</b>: لا تبدأ مهامّ، ولا تقرأ ملفّات، ولا تمسّ المفاتيح — والحاسوب نفسه هو الذي يمنع ذلك.</p>
+    <ol>
+      <li>على حاسوبك افتح صفحة الإقران <code dir="ltr">http://127.0.0.1:8790/pair</code>.</li>
+      <li>اضغط «أنشئ رابط متصفّح»، ثمّ افتح الرابط في هذا المتصفّح (صالح ١٠ دقائق ولمرّة واحدة).</li>
+      <li>وافق عليه من هاتفك: الإعدادات ← الأجهزة ← «وافق».</li>
+    </ol>
+  </section>
+
+  <!-- a link arrived -->
+  <section class="card" id="pair" hidden>
+    <h2>اربط هذا المتصفّح بحاسوب «<span id="pcName"></span>»؟</h2>
+    <p class="hint">يصير هذا المتصفّح جهازاً «للعرض فقط». يحفظ مفتاحه في هذا المتصفّح وحده، ولا يمكن لأيّ برنامج أن يقرأه منه. يحتاج موافقة هاتفك.</p>
+    <label class="field">اسم هذا المتصفّح في «الأجهزة»<input id="deviceName" maxlength="60"></label>
+    <div class="row-btns"><button type="button" class="btn primary" id="pairBtn">اربط</button><button type="button" class="btn" id="pairCancel">لا</button></div>
+    <p class="msg" id="pairMsg" role="status"></p>
+  </section>
+
+  <!-- paired -->
+  <section id="main" hidden>
+    <div class="banner" id="banner" hidden role="status"></div>
+    <div class="grid">
+      <section class="card"><h2>المواعيد</h2><div id="days"></div></section>
+      <aside class="side">
+        <section class="card"><h2>الإشعارات</h2><p class="hint" id="noticeHint">آخر ما أرسله حاسوبك.</p><button type="button" class="btn small" id="alertBtn" hidden>نبّهني في هذا المتصفّح</button><ul class="notices" id="notices"></ul></section>
+        <section class="card"><h2>بلا موعد</h2><div id="undated"></div></section>
+        <section class="card"><h2>هذا المتصفّح</h2><p class="hint" id="deviceInfo"></p><button type="button" class="btn danger" id="forget">أزل هذا المتصفّح</button></section>
+      </aside>
+    </div>
+  </section>
+
+  <footer>لا يجمع هذا الموقع شيئاً. المفتاح في هذا المتصفّح، والبيانات على حاسوبك. <a href="../">«فهم»</a></footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+</body>
+</html>
